@@ -12,7 +12,7 @@ public class TablePanel extends JPanel {
     private DefaultTableModel eulerTableModel;
     private DefaultTableModel midpointTableModel;
 
-    public TablePanel() {
+    private TablePanel() {
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createMatteBorder(3, 3, 3, 0, Color.BLACK));
         setLayout(new GridBagLayout());
@@ -58,6 +58,8 @@ public class TablePanel extends JPanel {
 //        System.out.println(Arrays.toString(row));
         eulerTableModel.addRow(row);
         System.out.println(eulerTableModel.getDataVector());
+
+
 
 //        System.out.println(eulerTableModel.getRowCount());
 //        System.out.println(eulerTableModel.equals(eulerTable.getModel()));

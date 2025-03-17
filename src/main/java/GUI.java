@@ -23,7 +23,7 @@ public class GUI extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
 
         chart = ChartPanel.getInstance();
-        table = new TablePanel();
+        table = TablePanel.getInstance();
         add(chart, gbc);
         isChart = true;
         gbc.gridx = 1;
