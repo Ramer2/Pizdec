@@ -81,13 +81,4 @@ public class EulerCalculation {
     private double round(double input) {
         return Math.round(input * 1000.0) / 1000.0;
     }
-
-    public static void main(String[] args) {
-        EulerCalculation eulerCalc = new EulerCalculation(0.0, 0.05, 0.0, 0.0, 5.0, 10.0, 0.0, 10.0);
-
-        for (double time = eulerCalc.t0; time <= 4.15; time += eulerCalc.dt) {
-            eulerCalc.update();
-            System.out.println("Time: " + time + ", X: " + eulerCalc.posX + ", Y: " + eulerCalc.posY);
-        }
-    }
 }

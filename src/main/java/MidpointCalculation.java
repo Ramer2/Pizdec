@@ -77,13 +77,4 @@ public class MidpointCalculation {
     private double round(double input) {
         return Math.round(input * 1000.0) / 1000.0;
     }
-
-    public static void main(String[] args) {
-        MidpointCalculation midCalc = new MidpointCalculation(0, 0.05, 0, 0, 5, 10, 0, 1);
-
-        for (double time = midCalc.t0; time <= 4.15; time += midCalc.dt) {
-            midCalc.update();
-            System.out.println("Time: " + time + ", X: " + midCalc.posX + ", Y: " + midCalc.posY);
-        }
-    }
 }

@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.Arrays;
 
 public class TablePanel extends JPanel {
     private static TablePanel instance;
@@ -26,13 +25,11 @@ public class TablePanel extends JPanel {
         String[] columnNames = {"t", "Sx", "Sy", "Vx", "Vy", "dSx", "dSy", "dVx", "dVy"};
         eulerTableModel = new DefaultTableModel(columnNames, 0);
         eulerTable = new JTable(eulerTableModel);
-//        eulerTableModel.addRow(new Object[]{0, 0, 0, 0, 0, 0, 0, 0});
         JScrollPane eulerScrollPane = new JScrollPane(eulerTable);
 
         JPanel eulerPanel = new JPanel(new BorderLayout());
         eulerPanel.setBorder(BorderFactory.createTitledBorder("Euler's Method"));
         eulerPanel.add(eulerScrollPane, BorderLayout.CENTER);
-//        eulerPanel.add(eulerTable, BorderLayout.CENTER);
         eulerPanel.setBackground(Color.WHITE);
 
         gbc.gridx = 0;
@@ -47,7 +44,6 @@ public class TablePanel extends JPanel {
         JPanel midpointPanel = new JPanel(new BorderLayout());
         midpointPanel.setBorder(BorderFactory.createTitledBorder("Midpoint Method"));
         midpointPanel.add(midpointScrollPane, BorderLayout.CENTER);
-//        midpointPanel.add(midpointTable, BorderLayout.CENTER);
         midpointPanel.setBackground(Color.WHITE);
 
         gbc.gridy = 1;
@@ -55,28 +51,15 @@ public class TablePanel extends JPanel {
     }
 
     public void addEulerRow(Object[] row) {
-//        System.out.println(Arrays.toString(row));
         eulerTableModel.addRow(row);
-        System.out.println(eulerTableModel.getDataVector());
-
-
-
-//        System.out.println(eulerTableModel.getRowCount());
-//        System.out.println(eulerTableModel.equals(eulerTable.getModel()));
-
-//        eulerTable.setModel(eulerTableModel);
-        eulerTable = new JTable(eulerTableModel);
-
         eulerTable.repaint();
         eulerTable.revalidate();
     }
 
     public void addMidpointRow(Object[] row) {
-        SwingUtilities.invokeLater(() -> {
-            midpointTableModel.addRow(row);
-            midpointTable.repaint();
-            midpointTable.revalidate();
-        });
+        midpointTableModel.addRow(row);
+        midpointTable.repaint();
+        midpointTable.revalidate();
     }
 
     public void reset() {
